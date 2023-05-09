@@ -2,7 +2,12 @@ import { useState } from 'react';
 import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 export default function App() {
 
-  const [weight, setWeight] = useState<string>();
+  const [numberLimit, setNumberLimit] = useState<string>();
+  const [randomNumber, setRandomNumber] = useState<string>();
+
+  function getRandom(max: any) {
+    setRandomNumber(String(Math.floor(Math.random() * Number(max) + 1)));
+  }
 
   return (
     <View style={styles.wrapper}>
@@ -11,16 +16,21 @@ export default function App() {
           <TextInput
             placeholder='Digite o valor final do sorteio'
             keyboardType='number-pad'
-            value={weight}
-            onChangeText={(value) => setWeight(value)}
+            value={numberLimit}
+            onChangeText={(value) => setNumberLimit(value)}
             style={styles.input}
           />
         </View>
         <View style={styles.wrapperButton}>
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity 
+            style={styles.button} 
+            activeOpacity={0.9}
+            onPress={() => getRandom(numberLimit)}
+          >
             <Text style={styles.textButton}>SORTEAR</Text>
           </TouchableOpacity>
         </View>
+        <Text style={styles.result}>{randomNumber}</Text>
     </View>
   );
 }
@@ -66,4 +76,10 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: 'center'
   },
+  result: {
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 50,
+    marginTop: 50
+  }
 });
