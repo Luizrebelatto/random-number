@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 export default function App() {
 
   const [numberLimit, setNumberLimit] = useState<string>();
@@ -31,6 +31,15 @@ export default function App() {
           </TouchableOpacity>
         </View>
         <Text style={styles.result}>{randomNumber}</Text>
+         <View style={styles.wrapperButton}>
+          <TouchableOpacity 
+            style={styles.buttonPrivacy} 
+            activeOpacity={0.9}
+            onPress={() => Linking.openURL("https://gist.github.com/Luizrebelatto/304947aafff085c016daf7a8146be469")}
+          >
+            <Text style={styles.textButton}>Política de Privacidade</Text>
+          </TouchableOpacity>
+        </View>
     </View>
   );
 }
@@ -57,6 +66,10 @@ const styles = StyleSheet.create({
     marginTop: 22,
     alignItems: 'center'
   },
+  wrapperPolicy: {
+    marginTop: 22,
+    alignItems: 'center'
+  },
   title: {
     fontSize: 25,
     fontWeight: 'bold',
@@ -68,6 +81,12 @@ const styles = StyleSheet.create({
     height: 40,
     width: 100,
     backgroundColor: '#D3D3D3',
+    borderRadius: 20,
+    justifyContent: 'center'
+  },
+  buttonPrivacy: {
+    height: 40,
+    width: 300,
     borderRadius: 20,
     justifyContent: 'center'
   },
