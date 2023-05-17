@@ -48,8 +48,9 @@ const styles = StyleSheet.create({
   input: {
     height: 40,
     width: '70%',
-    backgroundColor: 'white',
-    borderRadius: 10
+    backgroundColor: '#fff',
+    borderRadius: 10,
+    color: '#000000'
   },
   wrapper: {
     flex: 1,
