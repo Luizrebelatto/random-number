@@ -15,6 +15,7 @@ export default function App() {
         <View style={styles.wrapperInputs}>
           <TextInput
             placeholder='Digite o valor final do sorteio'
+            placeholderTextColor="#696969"
             keyboardType='number-pad'
             value={numberLimit}
             onChangeText={(value) => setNumberLimit(value)}
